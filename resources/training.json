@@ -1,0 +1,162 @@
+{
+  "how_skill": {
+    "topic": "how_are_you",
+    "action": "howAction",
+    "training": {
+      "how_are_you": [
+        "how are you",
+        "how are you going",
+        "how is it going"
+      ]
+    }
+  },
+
+  "help_skill": {
+    "topic": "help",
+    "action": "helpAction",
+    "training": {
+      "help": [
+        "how can you help",
+        "i need some help",
+        "how could you assist me",
+        "what can you do",
+        "what skills do you have"
+      ]
+    }
+  },
+
+  "open_pod_doors_skill": {
+    "topic": "open_pod_doors",
+    "action": "openDoorsAction",
+    "training": {
+      "open_pod_doors": [
+        "open the pod bay doors",
+        "open the bay doors",
+        "open the pod doors",
+        "open pod bay doors",
+        "open pod doors",
+        "open bay doors"
+      ]
+    }
+  },
+
+  "friends_skill": {
+    "topic": "best_friends",
+    "action": "friendsAction",
+    "training": {
+      "best_friends": [
+        "who are your best friends",
+        "who is your best friend",
+        "who are your friends",
+        "who is your friend",
+        "who are your best friends?",
+        "who is your best friend?",
+        "who are your friends?",
+        "who is your friend?"
+      ]
+    }
+  },
+
+  "all_integrations": {
+    "topic": "installed_integrations",
+    "action": "listInstalledIntegrationsAction",
+    "training": {
+      "all_integrations": [
+        "list all integrations"
+      ]
+    }
+  },
+
+  "installed_integrations": {
+    "topic": "all_integrations",
+    "action": "listAllIntegrationsAction",
+    "training": {
+      "installed_integrations": [
+        "list all installed integrations"
+      ]
+    }
+  },
+
+  "all_dashboards_skill": {
+    "topic": "all_dashboards",
+    "action": "listAllDashboardsAction",
+    "training": {
+      "all_dashboards": [
+        "list all dashboards"
+      ]
+    }
+  },
+
+  "test_skill": {
+    "topic": "test_alerts",
+    "action": "listAlerts",
+    "training": {
+      "test_alerts": [
+        "show all alerts for",
+        "display all alerts for",
+        "list all alerts for",
+        "show alerts for",
+        "display alerts for",
+        "list alerts for",
+        "list severe alerts",
+        "show severe alerts",
+        "show me severe alerts",
+        "display severe alerts",
+        "list all severe alerts",
+        "show all severe alerts",
+        "show me all severe alerts",
+        "display all severe alerts",
+        "list warning alerts",
+        "show warning alerts",
+        "show me warning alerts",
+        "display warning alerts",
+        "list all warning alerts",
+        "show all warning alerts",
+        "show me all warning alerts",
+        "display all warning alerts",
+        "list info alerts",
+        "show info alerts",
+        "show me info alerts",
+        "display info alerts",
+        "list all info alerts",
+        "show all info alerts",
+        "show me all info alerts",
+        "display all info alerts",
+        "list smoke alerts",
+        "show smoke alerts",
+        "show me smoke alerts",
+        "display smoke alerts",
+        "list all smoke alerts",
+        "show all smoke alerts",
+        "show me all smoke alerts",
+        "display all smoke alerts",
+        "list all alerts",
+        "show all alerts",
+        "show me all alerts"
+      ]
+    }
+  },
+
+  "snooze_alert_skill": {
+    "topic": "snooze_alert",
+    "action": "snoozeAlert",
+    "training": {
+      "snooze_alert": [
+        "snooze alert"
+      ]
+    }
+  },
+
+  "joke_skill": {
+    "topic": "tell_joke",
+    "action": "jokeAction",
+    "training": {
+      "tell_joke": [
+        "tell me a joke",
+        "make me laugh",
+        "tell a joke",
+        "tell me something funny"
+      ]
+    }
+  }
+}
