@@ -1,82 +1,101 @@
-# wf-slackbot
+# Wavefront Slackbot
 
-wf-slackbot is a bot that integrates slack with Wavefront using natural language processing to talk to the bot in a more conversational way than the command line.
+Whatfront Slackbot is a Slack integration for Wavefront that allows you
+to speak to Wavefront in a Slack channel to get quick answers to common
+metrics monitoring questions out of Wavefront
 
-# Installation
+# Getting started
+
+## Prerequisites
+
+1. [A Wavefront Account](https://www.wavefront.com/sign-up/?utm_source=SlackbotGithub)
+2. [A Wavefront API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token/?utm_source=SlackbotGithub)
+3. [Your Wavefront URL](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token/?utm_source=SlackbotGithub)
+4. [A Slack OAuth Token](https://api.slack.com/apps)
+    * You must create a slackbot for your workspace or this will not work
+    * Your app must have the following permissions
+        * A
+        * B
+        * C
+
+
+### Standalone
+
+Wavefront Slackbot is a NodeJS application that can be executed standalone.
+To do this following
 
 ```
-git clone git@gitlab.eng.vmware.com:clarkk/wf-slackbot.git
-cd wf-slackbot
+git clone https://github.com/wavefrontHQ/wavefront-slackbot.git
+cd wavefront-slackbot
 npm install
+export WAVEFRONT_TOKEB=YOUR_WAVEFRONT_TOKEN
+export WAVEFRONT_URL=YOUR_WAVEFRONT_URL
+node ./index.js
 ```
 
-# Running
+### Docker
+
+Wavefront Slackbot can be deployed to docker
 
 ```
-node index.js
+docker pull krisclarkdev/wfslackbot
+docker run krisclarkdev/wfslackbot \
+-e WAVEFRONT_TOKEN='' \
+-e WAVEFRONT_URL='' \
+-e SLACK_OAUTH=''
 ```
 
-# Commands
+### Kubernetes
 
-The Wavefront Slackbot can be used to query a number of different data points out of the system.  The following are valid commands that can be issued
+Wavefront Slackbot can be deployed to Kubernetes as well
 
-* wfbot list all alerts
-* wfbot list all smoke alerts
-* wfbot list all warning alerts
-* wfbot list all severe alerts
-* wfbot list all alerts for XYZ (Where XYZ is a string in the alert, e.g. Kubernetes)
-* wfbot list all smoke alerts for XYZ (Where XYZ is a string in the alert, e.g. Kubernetes)
-* wfbot list all warning alerts for XYZ (Where XYZ is a string in the alert, e.g. Kubernetes)
-* wfbot list all severe alerts for XYZ (Where XYZ is a string in the alert, e.g. Kubernetes)
-* wfbot tell me a joke
-
-# Adding a skill to the code
-
-To add a new skill to the bot you need to add it to training.json.
- 
-As an example if you wanted to add a new skill named 'birthday_skill' you would append training.json with
-
-libs/Training.js
-
-```json
-  "birthday_skill": {
-    "topic": "happy_birthday",
-    "action": "birthdayAction",
-    "training": {
-      "happy_birthday": [
-        "happy birthday",
-        "happy bday",
-        "have a great birthday",
-        "have a great bday"
-      ]
-    }
-  }
+```
+git clone https://github.com/wavefrontHQ/wavefront-slackbot.git
+cd wavefront-slackbot/kubernetes/
+***IMPORTANT: OPEN WFSLACKBOT AND CHANGE SLACK_OAUTH, WAVEFRONT_TOKEN, AND WAVEFRONT_URL***
+kubectl apply -f ./wfslackbot.yaml
 ```
 
-1. birthday_skill is the name of your skill
-2. birthday_skill.birthdayAction is your method in Actions.js
-3. training.happybirthday is an array of training documents for the chat bot so it knows what skill to use based on the user text
-4. Don't forget to add happyBirthday() to Actions.js like the following
+# How to use it
 
-```javascript
-exports.actions = {
-    happybirthdayAction: function() {
-        // Do things and stuff here
-    }
-}
+Wavefront slackbot can be invoked using a number of different text
+based commands just like you would do with other voice assistants.
+
+Currently supported commands
+
+```
+wfbot list alerts
+wfbot list alerts for <FILTER CONDITION>
+wfbot list fatal alerts
+wfbot list fatal alerts for <FILTER CONDITION>
+wfbot list warning alerts
+wfbot list warning alerts for <FILTER CONDITION>
+wfbot list smoke alerts
+wfbot list smoke alerts for <FILTER CONDITION>
+wfbot list info alerts
+wfbot list info alerts for <FILTER CONDITION>
+wfbot tell me a joke
 ```
 
-# Wavefront API Calls
+Where <FILTER CONDITION> is some string you want to filter by.  Assume you
+have three alerts firing in Wavefront
 
-* libs/Actions.js   - The work that's executed when a skill is triggered
-* libs/Chatbot.js   - This sets up the Slack real time messaging API and handles listening for defined skills
-* libs/Config.js    - This is a helper that allows for everything except the Actions to be defined via resources/training.json
-* libs/Endpoints.js - Where the HTTP Endpoints are defined
-* libs/NLP.js       - The base config for the NLP engine
-* libs/Rest.js      - Where the actual HTTP Request is made
-* libs/Skills.js    - This will create an array of skills for the chatbot
-* libs/Training.js  - This will create an array of training documents for NLP
-* libs/Wavefront.js - Where all Wavefront API calls come from
+```
+Kubernetes CPU Usage High
+Disk Space Full
+High Network Utilization
+```
 
-### Wavefront API Token
-The Wavefront API Token is defined as wavefront_key inside of libs/Rest.js but will later be removed in favor of a multi-user implementation.
+You could then look for these alerts using a command like this
+
+```
+wfbot list alerts for Kubernetes
+wfbot list alerts for CPU Usage
+wfbot list alerts for CPU
+wfbot list alerts for Disk Space
+wfbot list alerts Network Utilization
+```
+
+There are of course a number of ways to apply the filter condition.  As
+long as that string is in the alert text then Wavefront Slackbot will
+find it as it looks to see if any alerts contain your condition.
