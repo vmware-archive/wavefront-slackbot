@@ -52,7 +52,7 @@ Wavefront Slackbot can be deployed to Kubernetes as well
 ```
 git clone https://github.com/wavefrontHQ/wavefront-slackbot.git
 cd wavefront-slackbot/kubernetes/
-***IMPORTANT: OPEN WFSLACKBOT AND CHANGE SLACK_OAUTH, WAVEFRONT_TOKEN, AND WAVEFRONT_URL***
+***IMPORTANT: OPEN wfslackbot.yaml AND CHANGE SLACK_OAUTH, WAVEFRONT_TOKEN, AND WAVEFRONT_URL***
 kubectl apply -f ./wfslackbot.yaml
 ```
 
