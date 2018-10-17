@@ -28,7 +28,7 @@ To do this following
 git clone https://github.com/wavefrontHQ/wavefront-slackbot.git
 cd wavefront-slackbot
 npm install
-export WAVEFRONT_TOKEB=YOUR_WAVEFRONT_TOKEN
+export WAVEFRONT_TOKEN=YOUR_WAVEFRONT_TOKEN
 export WAVEFRONT_URL=YOUR_WAVEFRONT_URL
 node ./index.js
 ```
@@ -65,19 +65,19 @@ Currently supported commands
 
 ```
 wfbot list alerts
-wfbot list alerts for <FILTER CONDITION>
+wfbot list alerts for FILTER CONDITION
 wfbot list fatal alerts
-wfbot list fatal alerts for <FILTER CONDITION>
+wfbot list fatal alerts for FILTER CONDITION
 wfbot list warning alerts
-wfbot list warning alerts for <FILTER CONDITION>
+wfbot list warning alerts for FILTER CONDITION
 wfbot list smoke alerts
-wfbot list smoke alerts for <FILTER CONDITION>
+wfbot list smoke alerts for FILTER CONDITION
 wfbot list info alerts
-wfbot list info alerts for <FILTER CONDITION>
+wfbot list info alerts for FILTER CONDITION
 wfbot tell me a joke
 ```
 
-Where <FILTER CONDITION> is some string you want to filter by.  Assume you
+Where FILTER CONDITION is some string you want to filter by.  Assume you
 have three alerts firing in Wavefront
 
 ```
