@@ -1,6 +1,6 @@
 # Wavefront Slackbot
 
-Whatfront Slackbot is a Slack integration for Wavefront that allows you
+Wavefront Slackbot is a Slack integration for Wavefront that allows you
 to speak to Wavefront in a Slack channel to get quick answers to common
 metrics monitoring questions out of Wavefront
 
@@ -58,12 +58,20 @@ find it as it looks to see if any alerts contain your condition.
 4. [A Slack OAuth Token](https://api.slack.com/apps)
     * You must create a slackbot for your workspace or this will not work
     * Your app must have the following permissions
-        * A
-        * B
-        * C
+        * chat:write:bot
+        * channels:history
+        * chat:write:user
+        * groups:history
+        * im:history
+        * mpim:history
+        * bot
 
 
 ### Standalone
+
+#### Prerequisites
+* NodeJS v8.0.0 (though others might work this is what it was tested on)
+* NPM v5.0.0 (though others might work this is what it was tested on)
 
 Wavefront Slackbot is a NodeJS application that can be executed standalone.
 To do this following
