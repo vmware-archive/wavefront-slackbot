@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wavefront-deployment
+spec:
+  selector:
+    matchLabels:
+      app: slackbot
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slackbot
+    spec:
+      containers:
+      - name: wfslackbot
+        image: krisclarkdev/wfslackbot:beta
+        imagePullPolicy: Always
+        env:
+        - name: SLACK_OAUTH
+          value: "<<YOUR_SLACK_OAUTH_TOKEN>>"
+        - name: WAVEFRONT_TOKEN
+          value: "<<YOUR_WAVEFRONT_TOKEN>>"
+        - name: WAVEFRONT_URL
+          value: "<<YOUR_WAVEFRONT_URL>>"
