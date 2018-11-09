@@ -4,6 +4,9 @@ Wavefront Slackbot is a Slack integration for Wavefront that allows you
 to speak to Wavefront in a Slack channel to get quick answers to common
 metrics monitoring questions out of Wavefront
 
+
+[![Alt text](https://s3-us-west-2.amazonaws.com/wavefront-integration/slackbot-thumbnail.png)](https://s3-us-west-2.amazonaws.com/wavefront-integration/slackbot.mp4)
+
 # How to use it
 
 Wavefront slackbot can be invoked using a number of different text
@@ -90,7 +93,7 @@ node ./index.js
 Wavefront Slackbot can be deployed to docker
 
 ```
-docker pull krisclarkdev/wfslackbot
+docker pull krisclarkdev/wfslackbot:latest
 docker run krisclarkdev/wfslackbot \
 -e WAVEFRONT_TOKEN='' \
 -e WAVEFRONT_URL='' \
