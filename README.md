@@ -1,5 +1,7 @@
 # Wavefront Slackbot
 
+**_VMware has ended active development of this project, this repository will no longer be updated._**
+
 Wavefront Slackbot is a Slack integration for Wavefront that allows you
 to speak to Wavefront in a Slack channel to get quick answers to common
 metrics monitoring questions out of Wavefront
